@@ -5,6 +5,20 @@
   box-sizing: border-box;
 }
 
+.siteName {
+  font-size: 30px;
+}
+
+nav {
+  background-color: #56105c;
+  color: #fff;
+
+}
+
+nav ul li:hover{
+    background-color: #136b22;
+}
+
 .box {
   position: absolute;
   background-color: white;
@@ -193,8 +207,10 @@ nav ul {
 }
 
 nav ul li {
-  color: #56105c;
+  color: #fff;
   font-size: 20px;
+  margin: 0.5rem;
+  padding: 0 1rem;
 }
 
 header {
@@ -228,6 +244,12 @@ header {
 @media (max-width: 1600px) {
   .upgrade {
      margin: 0 3rem;
+  }
+}
+
+@media (max-width: 1530px) {
+  .upgrade {
+    width: 10rem;
   }
 }
 
