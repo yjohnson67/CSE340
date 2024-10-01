@@ -1,0 +1,12 @@
+<%# Heading Content %>
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<%# This is my message content %>    
+<%# messages() %>
+
+<%# Main content delivery mechanism %>
+<%- grid %>
