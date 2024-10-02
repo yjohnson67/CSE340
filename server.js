@@ -12,7 +12,7 @@ const app = express() //creates the "application"
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require('./routes/inventoryRoute'); //Use the variable inventoryRoute to store the required resource. 
-const utilities = require('./utilities/index');
+const utilities = require('./utilities/');
 
 /* ***********************
  * view engine and templates
@@ -27,12 +27,12 @@ app.set("layout", "./layouts/layout") // not at views root
 //Notice that instead of router.use, it is now app.use, meaning that the application itself will use this resource.
 app.use(static)
 //Index route
-app.get("/", baseController.buildHome)
+app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)  
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+  next({status: 404, message: 'Looks like our website is out for a spin! Check back in a bit!'})
 })
 
 /* ***********************
@@ -42,9 +42,11 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message
+  } else {message = 'Oops! Our server is having a meltdown—kind of like a car with no oil. Hang tight while we cool things down!'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
-    message: err.message,
+    message, 
     nav
   })
 })
