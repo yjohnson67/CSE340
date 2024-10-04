@@ -12,6 +12,7 @@ const app = express() //creates the "application"
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require('./routes/inventoryRoute'); //Use the variable inventoryRoute to store the required resource. 
+const detailsRoute = require('./routes/detailsRoute'); //Use the variable detailsRoute to store the required resource. 
 const utilities = require('./utilities/');
 
 /* ***********************
@@ -29,7 +30,8 @@ app.use(static)
 //Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
-app.use("/inv", inventoryRoute)  
+app.use("/inv", inventoryRoute) 
+app.use("/inv", detailsRoute) 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Looks like our website is out for a spin! Check back in a bit!'})
