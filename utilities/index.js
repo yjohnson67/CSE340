@@ -76,7 +76,7 @@ Util.buildDetailsGrid = async function(detailsData){
         //Image
         detailsGrid += '<a href="../../inv/detail/'+ vehicle.inv_id 
         + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-        + 'details"><img src="' + vehicle.inv_img 
+        + 'details"><img src="' + vehicle.inv_image 
         +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
         +' on CSE Motors" /></a>'
       detailsGrid += '</div>'  
