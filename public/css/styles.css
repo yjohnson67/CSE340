@@ -54,7 +54,7 @@ body {
 
 
 h1 {
-  text-align: center;
+  
   color: #2c3e50;
   margin-bottom: 20px;
 }
@@ -278,11 +278,42 @@ hr {
   border-width: 6px;
 }
 
+/*Details view*/
+.details-display{
+  display: flex;
+}
+
+#detailsLeft,
+#detailsRight {
+  margin: 1rem;
+  padding: 0.5;
+}
+
+.details-display a {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+
+#detailsLeft {
+  width: 40%;
+  height: auto;
+  overflow: hidden;
+}
+
+#detailsLeft img {
+  max-width: 100%;
+  width: auto;
+  display: block;
+}
+
 /*Responsive*/
 @media (max-width: 1600px) {
   .upgrade {
      margin: 0 3rem;
   }
+  .details-display
+     flex-direction: column;
 }
 
 @media (max-width: 1530px) {
