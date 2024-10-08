@@ -55,14 +55,14 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute) 
 app.use("/error", utilities.handleErrors(require("./routes/errorRoute")))
-// File Not Found Route - must be last route in list
-app.use(async (req, res, next) => {
-  next({status: 404, message: 'Looks like our website is out for a spin! Check back in a bit!'})
-})
 
 //Account Route
 app.use("/account", accountRoute)
 
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Looks like our website is out for a spin! Check back in a bit!'})
+})
 /* ***********************
 * Express Error Handler
 * Place after all other middleware
