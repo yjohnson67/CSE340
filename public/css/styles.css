@@ -307,6 +307,37 @@ hr {
   display: block;
 }
 
+/*login*/
+.loginForm {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #56105c;
+  max-width: 30rem;
+  margin: auto;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+.userInfo label {
+  font-family: 'Lora', montserrat;;
+  font-size: 20px;
+  color: #fff;
+}
+
+.loginForm p, .loginForm a {
+  color: #fff;
+}
+
+.loginForm button {
+  background-color: rgb(199, 199, 199);
+  margin: 1rem 0;
+  color: rgb(48, 48, 48);
+  text-shadow: none;
+  width: 96%;
+}
+
 /*Responsive*/
 @media (max-width: 1600px) {
   .upgrade {
@@ -418,6 +449,11 @@ hr {
   .upgrade img {
     margin-right: 0rem;
   }
+ }
+
+ .loginForm {
+  padding: 2rem;
+  max-width: 60rem;
  }
 
 @media (max-width: 393px) {
