@@ -12,7 +12,31 @@ const app = express() //creates the "application"
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require('./routes/inventoryRoute'); //Use the variable inventoryRoute to store the required resource. 
+const accountRoute = require('./routes/accountRoute')
 const utilities = require('./utilities/');
+const session = require("express-session")
+const pool = require('./database/')
+
+/* ***********************
+ * Middleware
+ * ************************/
+app.use(session({
+  store: new (require('connect-pg-simple')(session))({
+    createTableIfMissing: true,
+    pool,
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  name: 'sessionId',
+}))
+
+// Express Messages Middleware
+app.use(require('connect-flash')())
+app.use(function(req, res, next){
+  res.locals.messages = require('express-messages')(req, res)
+  next()
+})
 
 /* ***********************
  * view engine and templates
@@ -35,6 +59,9 @@ app.use("/error", utilities.handleErrors(require("./routes/errorRoute")))
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Looks like our website is out for a spin! Check back in a bit!'})
 })
+
+//Account Route
+app.use("/account", accountRoute)
 
 /* ***********************
 * Express Error Handler

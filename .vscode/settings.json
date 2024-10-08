@@ -12,5 +12,9 @@
             "name": "CSE340Render",
             "connectString": "postgresql://cse340yvette:ijsrjFvMIT47gszae2DqHMOGN2WuO5kj@dpg-crk2ljd2ng1s73fnpug0-a.oregon-postgres.render.com/cse340yvette"
         }
+    ],
+    "cSpell.ignoreWords": [
+        "Delorean",
+        "livin"
     ]
 }
