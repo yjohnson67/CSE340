@@ -36,6 +36,11 @@ h2 {
   font-size: 30px;
 }
 
+h3 {
+  font-family: 'Lora', montserrat;
+  font-size: 20px;
+}
+
 ul, a button, p {
   font-family: 'Lora', montserrat;
   font-size: 20px;
@@ -308,7 +313,7 @@ hr {
 }
 
 /*login*/
-.loginForm {
+.userForm {
   padding: 1rem;
   border-radius: 1rem;
   background-color: #56105c;
@@ -326,17 +331,33 @@ hr {
   color: #fff;
 }
 
-.loginForm p, .loginForm a {
+.userForm p, .userForm a {
   color: #fff;
 }
 
-.loginForm button {
+.userForm button {
   background-color: rgb(199, 199, 199);
   margin: 1rem 0;
   color: rgb(48, 48, 48);
   text-shadow: none;
   width: 96%;
 }
+
+/*Registration Form*/
+.userForm h3, .userForm ul {
+  color: #fff;
+}
+
+/* Register */
+#passButton button{
+  width: 2rem;
+  height: 2rem;
+  padding: 0.25rem;
+  margin: 0.25rem;
+}
+
+#passButton {
+  display: flex;
 
 /*Responsive*/
 @media (max-width: 1600px) {
@@ -383,6 +404,12 @@ hr {
 @media (max-width: 768px) {
   .upgrade {
     width: 70%;
+  }
+}
+
+@media (max-width: 695) {
+  .userForm h3, .userForm ul {
+    font-size: 1px;
   }
 }
 
@@ -451,7 +478,7 @@ hr {
   }
  }
 
- .loginForm {
+ .userForm {
   padding: 2rem;
   max-width: 60rem;
  }
@@ -461,6 +488,16 @@ hr {
       justify-content: space-between;
     }
  }
+
+ #passButton input {
+  width: 78%;
+}
+
+#passButton button {
+  width: 8rem;
+  height: 8rem;
+  margin: 0.25rem 1rem;
+}
 
 @media (max-width: 375px) {
   .upgrade img {
