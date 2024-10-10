@@ -343,6 +343,14 @@ hr {
   width: 96%;
 }
 
+.popup {
+  display: none;
+}
+ 
+#popBtn:hover + .popup {
+  display: block;
+}
+
 /*Registration Form*/
 .userForm h3, .userForm ul {
   color: #fff;
