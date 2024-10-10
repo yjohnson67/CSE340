@@ -3,10 +3,18 @@
  
 <%# Flash Message %>
 <%- messages() %>
+
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
  
 <%# Main Content %>
 <div class="userForm regForm">
-    <form action="/account/register" method="post">
+    <form action="/account/registration" method="post">
         <div class="userInfo">
             <label for="firstName">First Name</label>
             <input type="text" id="firstName" name="account_firstname" required>
