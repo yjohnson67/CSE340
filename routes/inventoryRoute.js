@@ -23,5 +23,15 @@ router.post("/add-classification",
     validate.classValidate.checkData,
     utilities.handleErrors(invController.addClassification)
 );
+
+//Route to Add Inventory View
+router.get("/add-inventory",
+    utilities.handleErrors(invController.buildInventory));
  
+router.post(
+    "/add-inventory",
+    validate.invValidate.rules(),
+    utilities.handleErrors(invController.addInventory)
+);
+
 module.exports = router;

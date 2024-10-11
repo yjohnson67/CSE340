@@ -337,7 +337,6 @@ hr {
 
 .userForm button {
   background-color: rgb(199, 199, 199);
-  margin: 1rem 0;
   color: rgb(48, 48, 48);
   text-shadow: none;
   width: 96%;
@@ -358,20 +357,22 @@ hr {
 
 /* Register */
 #passButton button{
+  display: block;
   width: 2rem;
   height: 2rem;
-  padding: 0.25rem;
-  margin: 0.25rem;
+  font-size: 1rem;
+  color: #fff;
+
 }
 
 #passButton {
   display: flex;
+  height: 2rem;
 }
 
 /* Management */
 .userInfo button {
   background-color: #56105c;
-  margin: 1rem 0;
   max-width: 30rem;
 }
 
@@ -497,18 +498,19 @@ hr {
   .upgrade img {
     margin-right: 0rem;
   }
- }
+ 
 
  .userForm {
   padding: 2rem;
   max-width: 60rem;
  }
+}
 
 @media (max-width: 393px) {
     nav ul {
       justify-content: space-between;
     }
- }
+ 
 
  #passButton input {
   width: 78%;
@@ -518,6 +520,7 @@ hr {
   width: 8rem;
   height: 8rem;
   margin: 0.25rem 1rem;
+}
 }
 
 @media (max-width: 375px) {

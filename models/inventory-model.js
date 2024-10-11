@@ -27,6 +27,13 @@ async function getInventoryByClassificationId(classification_id) {
 }
 
 /* ***************************
+ *  Get inventory details
+ * ************************** */
+async function getInventory() {
+  return await pool.query("SELECT * FROM public.inventory")
+}
+
+/* ***************************
  *  Get all inventory details
  * ************************** */
 async function getInventoryByVehicleId(inv_id) {
@@ -42,7 +49,7 @@ async function getInventoryByVehicleId(inv_id) {
     console.error("getInventoryByVehicleId error " + error)
   }
 }
-
+ 
 /* ***************************
  *  Insert New Classification
  * ************************** */
@@ -54,5 +61,13 @@ async function insertClassification(classification_name) {
     return error.message
   }
 }
+
+/* ***************************
+ *  Insert New Inventory
+ * ************************** */
+async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id){
+  const sql = "INSERT INTO inventory (inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *";
+  return await pool.query(sql, [inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id]);
+}
  
-module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByVehicleId, insertClassification};
+module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByVehicleId, insertClassification, addInventory, getInventory};
