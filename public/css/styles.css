@@ -366,7 +366,20 @@ hr {
 
 #passButton {
   display: flex;
+}
 
+/* Management */
+.userInfo button {
+  background-color: #56105c;
+  margin: 1rem 0;
+  max-width: 30rem;
+}
+
+.userInfo a {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: none;
+}
 /*Responsive*/
 @media (max-width: 1600px) {
   .upgrade {
