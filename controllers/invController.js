@@ -59,6 +59,15 @@ invCont.viewInv = async function (req, res, next) {
 /* ***************************
  *  Build Add Classification view
  * ************************** */
+invCont.buildClassification = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render('inventory/add-classification', {
+    title: 'Add Classification',
+    nav,
+    flash: req.flash(),
+    errors: null,
+  });
+}
 invCont.addClassification = async function (req, res, next) {
   const classificationName = req.body.classification_name
   let classification = await invModel.getClassifications();
@@ -97,7 +106,5 @@ invCont.addClassification = async function (req, res, next) {
     });
   }
 };
-
-
 
 module.exports = invCont
