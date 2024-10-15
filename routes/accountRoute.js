@@ -32,4 +32,7 @@ router.post(
   utilities.handleErrors(accountController.accountLogin)
 );
 
+//Route to user page
+router.get("/user", utilities.handleErrors(accountController.buildUser));
+
 module.exports = router;
