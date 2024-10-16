@@ -33,6 +33,6 @@ router.post(
 );
 
 //Route to user page
-router.get("/user", utilities.handleErrors(accountController.buildUser));
+router.get("/user", utilities.checkLogin, utilities.handleErrors(accountController.buildUser))
 
 module.exports = router;
