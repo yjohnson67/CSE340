@@ -47,9 +47,13 @@ invCont.buildByInventoryId = async function(req, res, next) {
 invCont.viewInv = async function (req, res, next) {
   let nav = await utilities.getNav();
   let classification = await invModel.getClassifications();
+
+  //Create a select list to be displayed in the inventory management view.
+  const classificationSelect = await utilities.buildClassificationList()
   res.render('./inventory/management', {
     title: 'Management',
     nav,
+    classificationSelect,
     flash: req.flash(),
     classification,
     errors: null,
