@@ -9,6 +9,18 @@
   font-size: 30px;
 }
 
+#links {
+  display: flex;
+  flex-direction: column;
+  color: #56105c;
+  margin-top: 5rem;
+  font-size: 15px;
+}
+
+#links a {
+  margin: 0.15rem 0;
+}
+
 nav {
   background-color: #56105c;
   color: #fff;
@@ -235,7 +247,8 @@ header {
   text-decoration: none;
 }
 
-#tools a:hover {
+#tools a:hover, 
+#links a:hover {
   color: #136b22;
   text-decoration: underline;
 }
@@ -381,6 +394,17 @@ hr {
   color: #fff;
   text-shadow: none;
 }
+
+/*Inventory Inventory Table*/
+#classification {
+  background-color: #56105c;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  text-shadow: none;
+  max-width: 30rem;
+}
+
 /*Responsive*/
 @media (max-width: 1600px) {
   .upgrade {

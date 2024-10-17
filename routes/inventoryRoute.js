@@ -1,37 +1,37 @@
-// Needed Resources
+
+// Needed Resources 
 const express = require("express")
-const router = new express.Router()
+const router = new express.Router() 
 const invController = require("../controllers/invController")
 const utilities = require('../utilities');
 const validate = require('../utilities/inventory-validation');
 
- 
+
 // Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
- 
+
 // Route to build inventory details
 router.get("/detail/:invId", invController.buildByInventoryId);
 
 //Route to Management View
 router.get("/management/", utilities.handleErrors(invController.viewInv));
- 
+
 //Route to Add Classification View
 router.get("/add-classification", utilities.handleErrors(invController.buildClassification));
- 
+
 router.post("/add-classification",
     validate.classValidate.rules(),
-    validate.classValidate.checkData,
-    utilities.handleErrors(invController.addClassification)
-);
+    utilities.handleErrors(invController.addClassification));
 
 //Route to Add Inventory View
 router.get("/add-inventory",
     utilities.handleErrors(invController.buildInventory));
- 
-router.post(
-    "/add-inventory",
+
+router.post("/add-inventory",
     validate.invValidate.rules(),
-    utilities.handleErrors(invController.addInventory)
-);
+    utilities.handleErrors(invController.addInventory));
+
+//works with the URL in the JavaScript file inventory.js    
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
 module.exports = router;

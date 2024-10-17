@@ -20,7 +20,6 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
-
 /* ***************************
  *  Build details view
  * ************************** */
@@ -32,9 +31,9 @@ invCont.buildByInventoryId = async function(req, res, next) {
   const vehicleYear = detailsData[0].inv_year
   const vehicleMake = detailsData[0].inv_make
   const vehicleModel = detailsData[0].inv_model
- 
+
   res.render("./inventory/details", {
-    title: vehicleYear + vehicleMake + " " + vehicleModel,
+    title: vehicleYear + " " + vehicleMake + " " + vehicleModel,
     nav,
     detailsGrid,
     errors: null,
@@ -48,14 +47,15 @@ invCont.viewInv = async function (req, res, next) {
   let nav = await utilities.getNav();
   let classification = await invModel.getClassifications();
 
-  //Create a select list to be displayed in the inventory management view.
-  const classificationSelect = await utilities.buildClassificationList()
+  //create a select list to be displayed in the inventory management view
+  //const classificationSelect = await utilities.buildClassificationList();
+
   res.render('./inventory/management', {
     title: 'Management',
     nav,
-    classificationSelect,
-    flash: req.flash(),
+    //classificationSelect,
     classification,
+    flash: req.flash(),
     errors: null,
   });
 }
@@ -65,13 +65,14 @@ invCont.viewInv = async function (req, res, next) {
  * ************************** */
 invCont.buildClassification = async function (req, res, next) {
   let nav = await utilities.getNav();
-  res.render('inventory/add-classification', {
+  res.render('./inventory/add-classification', {
     title: 'Add Classification',
     nav,
     flash: req.flash(),
     errors: null,
   });
 }
+
 invCont.addClassification = async function (req, res, next) {
   const classificationName = req.body.classification_name
   let classification = await invModel.getClassifications();
@@ -126,8 +127,9 @@ invCont.buildInventory = async function (req, res, next) {
     flash: req.flash(),
     errors: null,
   });
- 
+
 }
+
 invCont.addInventory = async function (req, res, next) {
   const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } = req.body
   let nav = await utilities.getNav()
@@ -172,5 +174,18 @@ invCont.addInventory = async function (req, res, next) {
     });
   }
 };
+
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+invCont.getInventoryJSON = async (req, res, next) => {
+  const classification_id = parseInt(req.params.classification_id)
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  if (invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
+  }
+}
 
 module.exports = invCont
