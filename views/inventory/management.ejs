@@ -4,6 +4,16 @@
 <%# Flash Message %>
 <%- messages() %>
 
+<% if (flash) { %>
+   <% if (flash.notice) { %>
+     <ul class="notice">
+       <% flash.notice.forEach(msg => { %>
+         <li><%= msg %></li>
+       <%  }) %>
+     </ul>
+   <% } %>
+ <% } %>
+
 <%# Main Content %>
 <div class="userInfo">
    <button type="button"><a href="./add-classification">Add New Classification</a></button>
