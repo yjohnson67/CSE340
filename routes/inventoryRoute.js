@@ -42,4 +42,12 @@ router.post("/edit-inventory/",
     validate.invValidate.rules(),
     utilities.handleErrors(invController.updateInventory))
 
+
+//Delete Inventory View (Delete from management page)
+router.get("/delete-confirm/:inv_id",
+    utilities.handleErrors(invController.deleteInventory))
+    
+router.post("/delete-confirm/",
+    utilities.handleErrors(invController.removeInventory))
+
 module.exports = router;
