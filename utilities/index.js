@@ -166,4 +166,14 @@ Util.checkJWTToken = (req, res, next) => {
   }
  }
 
+Util.checkClearance = (req, res, next) => {
+  const accountType = res.locals.accountData.account_type
+  if(accountType !== "Admin" && accountType !== "Employee"){
+    req.flash("You do not have permission to access this page.")
+    return res.redirect("/account/login")
+  } else {
+    next()
+  }
+ }
+
 module.exports = Util

@@ -328,5 +328,19 @@ invCont.deleteInventory = async function (req, res, next) {
   });
 };
  
+invCont.removeInventory = async function (req, res, next) {
+  const inv_id = parseInt(req.body.inv_id);
+  let nav = await utilities.getNav()
+    const removeResult = await invModel.removeInventory(inv_id)
+
+    if (removeResult){
+      req.flash("notice", `The car was successfully Deleted.`)
+      res.redirect("/inv/management")
+    }
+    else {
+      req.flash("notice", "Sorry, the delete failed.")
+      res.status(501).render("/inv/management")
+    }
+};
 
 module.exports = invCont

@@ -130,4 +130,17 @@ async function accountLogin(req, res) {
     })
   }
 
-module.exports = { buildLogin, buildRegistration, registerAccount, accountLogin, buildUser}
+/* ****************************************
+*  Build accManagement
+* ************************************ */
+async function buildAccManagement(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("account/accManagement", {
+    title: "LoggedIn",
+    nav,
+    flash: req.flash(),
+    errors: null,
+  })
+}
+
+module.exports = { buildLogin, buildRegistration, registerAccount, accountLogin, buildUser, buildAccManagement}
