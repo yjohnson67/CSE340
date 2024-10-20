@@ -5,6 +5,10 @@ const utilities = require("../utilities/")
 const accountController = require("../controllers/accountController")
 const regValidate = require('../utilities/account-validation')
 
+//These lines fixed my code, I don't have any idea why***/
+router.use(express.json());
+router.use(express.urlencoded({ extended: true}));
+
 //Move to the view for My Account page
 router.get("/login", accountController.buildLogin);
 
@@ -38,5 +42,18 @@ router.get("/user", utilities.checkLogin, utilities.checkClearance, utilities.ha
 //Route to accManagement
 router.get("/accManagement",
 utilities.handleErrors(accountController.buildAccManagement))
+
+//Route to Update Account Page
+router.get("/update/:account_id",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.buildAccountUpdate)
+);
+ 
+router.post("/account-update",
+  utilities.checkLogin,
+  regValidate.validate.updateAccountRules(),
+  regValidate.validate.checkUpdatedData,
+  utilities.handleErrors(accountController.accountUpdate)
+);
 
 module.exports = router;
