@@ -36,6 +36,8 @@ router.post(
   utilities.handleErrors(accountController.accountLogin)
 );
 
+router.get('/logout', utilities.handleErrors(accountController.accountLogout));
+
 //Route to user page
 router.get("/user", utilities.checkLogin, utilities.checkClearance, utilities.handleErrors(accountController.buildUser))
 
@@ -54,6 +56,13 @@ router.post("/account-update",
   regValidate.validate.updateAccountRules(),
   regValidate.validate.checkUpdatedData,
   utilities.handleErrors(accountController.accountUpdate)
+);
+
+router.post(
+  "/change-password",
+  utilities.checkLogin,
+    // regValidate.validate.changePasswordRules,
+  utilities.handleErrors(accountController.changePassword)
 );
 
 module.exports = router;
