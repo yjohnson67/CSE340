@@ -35,7 +35,7 @@ Util.buildClassificationGrid = async function(data){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
       grid += '<li>'
-      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
+      grid +=  '<a href="../../inv/details/'+ vehicle.inv_id 
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
       + 'details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
@@ -43,7 +43,7 @@ Util.buildClassificationGrid = async function(data){
       grid += '<div class="namePrice">'
       grid += '<hr />'
       grid += '<h2>'
-      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+      grid += '<a href="../../inv/details/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
       grid += '</h2>'
@@ -70,7 +70,7 @@ Util.buildDetailsGrid = async function(detailsData){
       //Left
       detailsGrid += '<div id= "detailsLeft">'
       //Image
-        detailsGrid += '<a href="../../inv/detail/'+ vehicle.inv_id 
+        detailsGrid += '<a href="../../inv/details/'+ vehicle.inv_id 
         + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
         + 'details"><img src="' + vehicle.inv_image 
         +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
@@ -81,7 +81,7 @@ Util.buildDetailsGrid = async function(detailsData){
       detailsGrid += '<div id="detailsRight">'
         //Heading
         detailsGrid += '<h2>'
-        detailsGrid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+        detailsGrid += '<a href="../../inv/details/' + vehicle.inv_id +'" title="View ' 
         + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
         + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</a>'
         detailsGrid += '</h2>'

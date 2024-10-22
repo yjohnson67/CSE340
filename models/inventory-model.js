@@ -44,7 +44,7 @@ async function getInventoryByVehicleId(inv_id) {
       WHERE inv_id = $1`,
       [inv_id]
     )
-    return data.rows[0]
+    return data.rows
   } catch (error) {
     console.error("getInventoryByVehicleId error " + error)
   }
