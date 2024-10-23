@@ -50,4 +50,11 @@ router.get("/delete-confirm/:inv_id",
 router.post("/delete-confirm/",
     utilities.handleErrors(invController.removeInventory))
 
+// Route to add a new review
+router.post("/reviews/add", utilities.handleErrors(invController.addReview));
+
+// Route to delete a review
+router.post("/reviews/delete", utilities.handleErrors(invController.deleteReview));
+
+
 module.exports = router;

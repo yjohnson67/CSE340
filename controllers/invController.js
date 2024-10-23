@@ -343,4 +343,49 @@ invCont.removeInventory = async function (req, res, next) {
     }
 };
 
+
+/* ***************************
+ *  Add a new review
+ * ************************** */
+invCont.addReview = async function (req, res, next) {
+  const { rating, review_text } = req.body;
+  const account_id = res.locals.accountData.account_id; 
+  const inv_id = req.body.inv_id;
+
+  if (!account_id) {
+    req.flash('notice', 'You need to be logged in to leave a review.');
+    return res.redirect(`/inv/detail/${inv_id}`);
+  }
+
+  try {
+    const newReview = await reviewModel.addReview(inv_id, account_id, review_text, rating);
+    req.flash('notice', 'Review added successfully!');
+    res.redirect(`/inv/detail/${inv_id}`);
+  } catch (error) {
+    console.error("Error adding review:", error);
+    res.status(500).send("Error adding review");
+  }
+}
+
+/* ***************************
+ *  Delete a review
+ * ************************** */
+invCont.deleteReview = async function (req, res, next) {
+  const { review_id, inv_id } = req.body;
+  const account_id = req.session.account_id;
+
+  try {
+    const deletedReview = await reviewModel.deleteReview(review_id, account_id);
+    if (deletedReview) {
+      req.flash('notice', 'Review deleted successfully.');
+    } else {
+      req.flash('notice', 'Unable to delete review.');
+    }
+    res.redirect(`/inv/detail/${inv_id}`);
+  } catch (error) {
+    console.error("Error deleting review:", error);
+    res.status(500).send("Error deleting review");
+  }
+}
+
 module.exports = invCont

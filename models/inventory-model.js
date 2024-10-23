@@ -120,5 +120,52 @@ async function removeInventory(inv_id){
     new Error("Delete Inventory Error")
   }
 }
- 
-module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByVehicleId, insertClassification, addInventory, getInventory, updateInventory,removeInventory};
+
+/* ***************************
+ *  Add a new review
+ * ************************** */
+async function addReview(inv_id, account_id, review_text, rating) {
+  try {
+    const sql = `INSERT INTO reviews (inv_id, account_id, review_text, rating)
+                 VALUES ($1, $2, $3, $4) RETURNING *`;
+    const data = await pool.query(sql, [inv_id, account_id, review_text, rating]);
+    return data.rows[0]; // Return the newly added review
+  } catch (error) {
+    console.error("addReview error:", error);
+    throw new Error("Could not add review");
+  }
+}
+
+/* ***************************
+ *  Get reviews by inventory item
+ * ************************** */
+async function getReviewsByInvId(inv_id) {
+  try {
+    const sql = `SELECT r.*, a.account_name 
+                 FROM reviews r 
+                 JOIN accounts a ON r.account_id = a.account_id 
+                 WHERE r.inv_id = $1`;
+    const data = await pool.query(sql, [inv_id]);
+    return data.rows; // Return all reviews for this inventory item
+  } catch (error) {
+    console.error("getReviewsByInvId error:", error);
+    throw new Error("Could not retrieve reviews");
+  }
+}
+
+/* ***************************
+ *  Delete a review
+ * ************************** */
+async function deleteReview(review_id, account_id) {
+  try {
+    const sql = `DELETE FROM reviews WHERE review_id = $1 AND account_id = $2 RETURNING *`;
+    const data = await pool.query(sql, [review_id, account_id]);
+    return data.rows[0]; // Return the deleted review
+  } catch (error) {
+    console.error("deleteReview error:", error);
+    throw new Error("Could not delete review");
+  }
+}
+
+
+module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByVehicleId, insertClassification, addInventory, getInventory, updateInventory,removeInventory, addReview, getReviewsByInvId, deleteReview};
