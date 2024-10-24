@@ -1,16 +1,27 @@
 <%# Heading Content %>
-<% if (title) { %>
-    <h1><%= title %></h1>
-    <% } else {
-      res.redirect('/')
-    } %>
+<h1><%= title %></h1>
  
+<%# Flash Message %>
+<%- messages() %>
+ 
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <%  }) %>
+  </ul>
+<% } %>
+
  <%# Main Content %>
  <%- detailsGrid %>
 
+ <form id="revButton" action="/inv/reviews/<%= inv_id %>" method="post">
+  <button type="submit">View Vehicle Reviews</button>
+</form>
+
 
 <!-- Add a Review Form -->
-<div class="userInfo">
+<div class="userForm">
   <h3>Leave a Review</h3>
   <form action="/inv/review" method="post">
     <input type="hidden" name="inv_id" value="<%= inv_id %>">
