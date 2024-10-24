@@ -62,44 +62,37 @@ Util.buildClassificationGrid = async function(data){
 /* **************************************
 * Build the details view HTML
 * ************************************ */
-Util.buildDetailsGrid = async function(detailsData){
-  let detailsGrid
-  if(detailsData.length > 0){
-    detailsGrid = '<div class="details-display">'
-    detailsData.forEach(vehicle => { 
-      //Left
-      detailsGrid += '<div id= "detailsLeft">'
-      //Image
-        detailsGrid += '<a href="../../inv/details/'+ vehicle.inv_id 
-        + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-        + 'details"><img src="' + vehicle.inv_image 
-        +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
-        +' on CSE Motors" /></a>'
-      detailsGrid += '</div>'  
-
-      //Right
-      detailsGrid += '<div id="detailsRight">'
-        //Heading
-        detailsGrid += '<h2>'
-        detailsGrid += '<a href="../../inv/details/' + vehicle.inv_id +'" title="View ' 
-        + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
-        + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</a>'
-        detailsGrid += '</h2>'
-        //List 
-        detailsGrid += '<ul id="detailsList">'
-        detailsGrid += '<li><span>Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span></li>'
-        detailsGrid += '<li><span>Description: ' + vehicle.inv_description + '</span></li>'
-        detailsGrid += '<li><span>color: ' + vehicle.inv_color + '</span></li>'
-        detailsGrid += '<li><span>Miles: ' + vehicle.inv_miles + '</span></li>'
-        detailsGrid += '</ul>'
-      detailsGrid += '</div>'
-    })
-    detailsGrid += '</div>'
-  } else { 
-    detailsGrid += '<p class="notice">Sorry, this vehicles information could not be found.</p>'
-  }
-  return detailsGrid
-}
+Util.buildDetailsGrid = async function(vehicle) {  
+  let detailsGrid = '';
+ 
+    detailsGrid = '<div class="details-display">';            
+      detailsGrid += '<div class="detailsLeft">';      
+      detailsGrid += '<a href="../../inv/details/' + vehicle.inv_id        
+        + '" title="View ' + vehicle.inv_make + ' ' + vehicle.inv_model        
+        + ' details"><img src="' + vehicle.inv_image        
+        + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model        
+        + ' on CSE Motors" /></a>';      
+      detailsGrid += '</div>';      
+     
+      detailsGrid += '<div class="detailsRight">';      
+      detailsGrid += '<h2>';      
+      detailsGrid += '<a href="../../inv/details/' + vehicle.inv_id        
+        + '" title="View ' + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">'        
+        + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</a>';      
+      detailsGrid += '</h2>';      
+     
+      detailsGrid += '<ul class="detailsList">';
+      detailsGrid += '<li><span>Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span></li>';      
+      detailsGrid += '<li><span>Description: ' + vehicle.inv_description + '</span></li>';
+      detailsGrid += '<li><span>Color: ' + vehicle.inv_color + '</span></li>';
+      detailsGrid += '<li><span>Miles: ' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</span></li>';
+      detailsGrid += '</ul>';
+      detailsGrid += '</div>';
+ 
+    detailsGrid += '</div>';
+ 
+  return detailsGrid;
+};
 
 /* **************************************
 * Build the Inventory view HTML

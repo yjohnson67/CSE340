@@ -8,44 +8,24 @@
  <%# Main Content %>
  <%- detailsGrid %>
 
- <!-- Review Section -->
-<h2>Reviews</h2>
-
-<% if (reviews && reviews.length > 0) { %>
-  <ul>
-    <% reviews.forEach(review => { %>
-      <li>
-        <strong><%= review.account_name %></strong> (Rated: <%= review.rating %>/5)
-        <p><%= review.review_text %></p>
-        <% if (account_id === review.account_id) { %>
-          <form action="/reviews/delete" method="post">
-            <input type="hidden" name="review_id" value="<%= review.review_id %>" />
-            <input type="hidden" name="inv_id" value="<%= inv_id %>" />
-            <button type="submit">Delete</button>
-          </form>
-        <% } %>
-      </li>
-    <% }); %>
-  </ul>
-<% } else { %>
-  <p>No reviews yet. Be the first to leave a review!</p>
-<% } %>
 
 <!-- Add a Review Form -->
-<h3>Leave a Review</h3>
-<form action="/details/add" method="post">
-  <input type="hidden" name="inv_id" value="<%= inv_id %>">
-  <label for="rating">Rating:</label>
-  <select name="rating" id="rating">
-    <option value="5">5</option>
-    <option value="4">4</option>
-    <option value="3">3</option>
-    <option value="2">2</option>
-    <option value="1">1</option>
-  </select>
-  <br>
-  <label for="review_text">Review:</label>
-  <textarea name="review_text" id="review_text" required></textarea>
-  <br>
-  <button type="submit">Submit Review</button>
-</form>
+<div class="userInfo">
+  <h3>Leave a Review</h3>
+  <form action="/inv/review" method="post">
+    <input type="hidden" name="inv_id" value="<%= inv_id %>">
+    <label for="rating">Rating:</label>
+    <select name="rating" id="rating" required>
+       <option value="5">5</option>
+       <option value="4">4</option>
+       <option value="3">3</option>
+       <option value="2">2</option>
+       <option value="1">1</option>
+    </select>
+    <label for="review_text">Review:</label>
+    <textarea name="review_text" id="review_text" required></textarea>
+    <button type="submit">Submit Review</button>
+ </form>
+</div>
+
+

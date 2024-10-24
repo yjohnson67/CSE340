@@ -56,5 +56,8 @@ router.post("/reviews/add", utilities.handleErrors(invController.addReview));
 // Route to delete a review
 router.post("/reviews/delete", utilities.handleErrors(invController.deleteReview));
 
+//Review Route
+router.post("/review",
+    utilities.handleErrors(invController.addReview));
 
 module.exports = router;

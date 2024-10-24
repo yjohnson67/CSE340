@@ -25,18 +25,23 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * ************************** */
 invCont.buildByInventoryId = async function(req, res, next) {
   const inv_id = req.params.invId
+  console.log("Fetching details for inv_id:", inv_id);
+
   const detailsData = await invModel.getInventoryByVehicleId(inv_id)
+  console.log("Details Data:", detailsData);
+
   const detailsGrid = await utilities.buildDetailsGrid(detailsData)
   let nav = await utilities.getNav()
-  const vehicleYear = detailsData[0].inv_year
-  const vehicleMake = detailsData[0].inv_make
-  const vehicleModel = detailsData[0].inv_model
+  const vehicleYear = detailsData.inv_year
+  const vehicleMake = detailsData.inv_make
+  const vehicleModel = detailsData.inv_model
 
   res.render("./inventory/details", {
     title: vehicleYear + " " + vehicleMake + " " + vehicleModel,
     nav,
     detailsGrid,
     errors: null,
+    inv_id:detailsData.inv_id,
   })
 }
 
@@ -347,44 +352,43 @@ invCont.removeInventory = async function (req, res, next) {
 /* ***************************
  *  Add a new review
  * ************************** */
-invCont.addReview = async function (req, res, next) {
-  const { rating, review_text } = req.body;
-  const account_id = res.locals.accountData.account_id; 
-  const inv_id = req.body.inv_id;
-
+invCont.addReview =  async function (req, res, next) {
+  const { inv_id, rating, review_text } = req.body;
+  const account_id = res.locals.accountData.account_id;
+ 
   if (!account_id) {
     req.flash('notice', 'You need to be logged in to leave a review.');
     return res.redirect(`/inv/detail/${inv_id}`);
   }
-
+ 
+  const detailsData = await invModel.getInventoryByVehicleId(inv_id)
+  console.log("Details Data:", detailsData);
+ 
+  const detailsGrid = await utilities.buildDetailsGrid(detailsData)
+  let nav = await utilities.getNav()
+ 
+  const vehicleYear = detailsData.inv_year
+  const vehicleMake = detailsData.inv_make
+  const vehicleModel = detailsData.inv_model
+ 
   try {
-    const newReview = await reviewModel.addReview(inv_id, account_id, review_text, rating);
+    const newReview = await invModel.addReview(inv_id, account_id, review_text, rating);
+    console.log(newReview)
+   
     req.flash('notice', 'Review added successfully!');
-    res.redirect(`/inv/detail/${inv_id}`);
+    res.render("./inventory/details", {
+      title: vehicleYear + " " + vehicleMake + " " + vehicleModel,
+      nav,
+      detailsGrid,
+      errors: null,
+      inv_id: detailsData.inv_id,
+      review_text: newReview.review_text,
+      rating: newReview.rating,
+    })
+ 
   } catch (error) {
     console.error("Error adding review:", error);
     res.status(500).send("Error adding review");
-  }
-}
-
-/* ***************************
- *  Delete a review
- * ************************** */
-invCont.deleteReview = async function (req, res, next) {
-  const { review_id, inv_id } = req.body;
-  const account_id = req.session.account_id;
-
-  try {
-    const deletedReview = await reviewModel.deleteReview(review_id, account_id);
-    if (deletedReview) {
-      req.flash('notice', 'Review deleted successfully.');
-    } else {
-      req.flash('notice', 'Unable to delete review.');
-    }
-    res.redirect(`/inv/detail/${inv_id}`);
-  } catch (error) {
-    console.error("Error deleting review:", error);
-    res.status(500).send("Error deleting review");
   }
 }
 
