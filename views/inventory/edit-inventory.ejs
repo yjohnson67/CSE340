@@ -23,7 +23,7 @@
          <label for="year">Year:</label>
          <input type="number" id="year" name="inv_year" value="<%= locals.inv_year %>" required>
          <label for="description">Description:</label>
-         <textarea id="description" name="inv_description" <%= locals.inv_description %> placeholder="Type description here..."></textarea>
+         <textarea id="description" name="inv_description" placeholder="Type description here..."><%= locals.inv_description %> </textarea>
       </div>
       <div class="userInfo">
          <label for="price">Price:</label>
@@ -44,9 +44,9 @@
       </div>
       <div class="userInfo">
          <label for="image">Image:</label>
-         <input type="text" id="image" name="inv_image" placeholder="/images/vehicles/no-image.png">
+         <input type="text" id="image" name="inv_image" placeholder="/images/vehicles/no-image.png" value="<%= locals.inv_image %>" required>
          <label for="thumbnail">Thumbnail:</label>
-         <input type="text" id="thumbnail" name="inv_thumbnail" placeholder="/images/vehicles/no-image-tn.png">
+         <input type="text" id="thumbnail" name="inv_thumbnail" placeholder="/images/vehicles/no-image-tn.png" value="<%= locals.inv_thumbnail %>" required>
       </div>
       <button type="submit" disabled>Update Vehicle</button>
 
@@ -57,4 +57,4 @@
    </form>
 </div>
 
-<script src="../../js/inv-update.js"></script>
+<script src="/js/inventory-update.js"></script>

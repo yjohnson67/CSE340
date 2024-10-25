@@ -25,6 +25,7 @@
    <p>Please select a classification from the list below to view the items that belong to that category. Each classification groups similar items to help you easily find what you're looking for. Simply click on your desired classification to see the full list of items available within it.</p>
    <label for="classification">Classification:</label>
    <select id="classification">
+    <option value=''>Choose a Classification</option>
       <% for(var i=0; i<classification.rowCount; i++) {%>
       <option value="<%= classification.rows[i].classification_id %>">
         <%= classification.rows[i].classification_name %>
