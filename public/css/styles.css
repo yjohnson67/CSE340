@@ -325,11 +325,16 @@ hr {
 
 .userForm textarea {
   color: black; 
-  
+
 }
 
-.userForm label {
+.userInfo label, button {
   color: #fff;
+}
+
+.reviewForm {
+  max-width: 25rem;
+  background-color: #56105c;
 }
 
 

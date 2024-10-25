@@ -15,15 +15,10 @@
  <%# Main Content %>
  <%- detailsGrid %>
 
- <form id="revButton" action="/inv/reviews/<%= inv_id %>" method="post">
-  <button type="submit">View Vehicle Reviews</button>
-</form>
-
-
 <!-- Add a Review Form -->
-<div class="userForm">
+<div>
   <h3>Leave a Review</h3>
-  <form action="/inv/review" method="post">
+  <form action="/inv/review" method="post" class="userInfo reviewForm">
     <input type="hidden" name="inv_id" value="<%= inv_id %>">
     <label for="rating">Rating:</label>
     <select name="rating" id="rating" required>
