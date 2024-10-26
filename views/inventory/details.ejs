@@ -15,6 +15,11 @@
  <%# Main Content %>
  <%- detailsGrid %>
 
+ <!-- Reviews by vehicle-->
+ <form id="revButton" action="/inv/reviews/<%= inv_id %>" method="post">
+  <button type="submit">View Vehicle Reviews</button>
+</form>
+
 <!-- Add a Review Form -->
 <div>
   <h3>Leave a Review</h3>
