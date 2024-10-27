@@ -4,11 +4,11 @@
 *:after {
   box-sizing: border-box;
 }
-
+ 
 .siteName {
   font-size: 30px;
 }
-
+ 
 #links {
   display: flex;
   flex-direction: column;
@@ -16,49 +16,49 @@
   margin-top: 5rem;
   font-size: 15px;
 }
-
+ 
 #links a {
   margin: 0.15rem 0;
 }
-
+ 
 nav {
   background-color: #56105c;
   color: #fff;
-
+ 
 }
-
+ 
 nav ul li:hover{
     background-color: #136b22;
 }
-
+ 
 #wrapper {
   background-color: white;
   border: solid 0.25rem #56105c;
   border-radius: 1rem;
   padding: 3rem;
 }
-
+ 
 h1 {
   font-family: 'Lora', montserrat;
   font-size: 40px;
 }
-
+ 
 h2 {
   font-family: 'Lora', montserrat;
   font-size: 30px;
 }
-
+ 
 h3 {
   font-family: 'Lora', montserrat;
   font-size: 20px;
 }
-
+ 
 ul, a button, p {
   font-family: 'Lora', montserrat;
   font-size: 20px;
 }
-
-
+ 
+ 
 /* body */
 body {
   margin: 0;
@@ -68,19 +68,18 @@ body {
   background-position: top left;
   padding: 5% 12%;
 }
-
-
+ 
+ 
 h1 {
-  
   color: #2c3e50;
   margin-bottom: 20px;
 }
-
+ 
 section {
   padding: 20px;
   max-width: 1200px;
 }
-
+ 
 .one {
   display: flex;
   justify-content: space-around;
@@ -88,30 +87,30 @@ section {
   border-radius: 8px;
   margin-bottom: 20px;
 }
-
+ 
 .oneLeft{
   flex: 1;
   padding: 10px;
 }
-
+ 
 .oneLeft h2 {
   color: #56105c;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
-
+ 
 .oneLeft ul {
   padding: 0;
   margin: 0;
 }
-
+ 
 .oneLeft ul li {
   /*background: #fff;*/
   margin: 5px 0;
   padding: 10px;
   border-radius: 4px;
 }
-
+ 
 .oneLeft button,
 .userForm button {
   width: 200px;
@@ -125,25 +124,24 @@ section {
   cursor: pointer;
   text-align: center;
 }
-
-
+ 
+ 
 .oneLeft button:hover {
   background-color: #136b22;
 }
-
+ 
 .oneRight {
   flex: 1;
   text-align: center;
 }
-
+ 
 .oneRight img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
   /*border-radius: 8px;*/
-  
 }
-
+ 
 .two {
   display: flex;
   justify-content: space-between;
@@ -151,32 +149,32 @@ section {
   border-radius: 8px;
   padding: 20px;
 }
-
+ 
 .twoLeft {
   width: 60%;
 }
-
+ 
 .twoLeft h2 {
   color: #56105c;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-
+ 
 .upgraded {
   display: flex;
   flex-wrap: wrap;
 }
-
+ 
 .upgrade {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-right: 2rem;
-  width: 15rem;
+  width: 8rem;
   margin: 1rem 0;
 }
-
+ 
 .upgrade img {
   object-fit: contain;
   max-width: 100px;
@@ -184,75 +182,75 @@ section {
   background-color: #56105c;
   padding: 1rem 2rem;
 }
-
+ 
 .upgrade p {
   margin: 0;
   font-size: 14px;
 }
-
+ 
 .twoRight {
   flex: 1;
 }
-
+ 
 .twoRight h2 {
   color: #56105c;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-
+ 
 .twoRight ul {
   padding: 0;
   margin: 0;
 }
-
+ 
 .twoRight ul li {
   margin: 5px 0;
   padding: 10px;
   border-radius: 4px;
 }
-
+ 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
   padding: 0;
 }
-
+ 
 nav ul li a {
   color: #fff;
   font-size: 20px;
   margin: 0.5rem;
   padding: 0 1rem;
 }
-
+ 
 header {
   display: flex;
   justify-content: space-between;
 }
-
+ 
 .siteName a {
   text-decoration: none;
   color: #56105c;
   text-transform: uppercase;
 }
-
+ 
 #tools {
   text-decoration: none;
   color: #56105c;
   text-transform: uppercase;
 }
-
+ 
 #tools a {
   color: #56105c;
   text-decoration: none;
 }
-
+ 
 #tools a:hover, 
 #links a:hover {
   color: #136b22;
   text-decoration: underline;
 }
-
+ 
 #inv-display {
   list-style: none;
   padding: 0;
@@ -260,7 +258,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
 }
-
+ 
 #inv-display li {
   padding: 1rem;
   margin: 2rem;
@@ -270,83 +268,83 @@ header {
   overflow: hidden;
   text-align: center;
 }
-
+ 
 #inv-display a {
   width: 100%;
 }
-
+ 
 .namePrice h2 {
   text-align: center;
   font-size: 16px;
 }
-
+ 
 .namePrice span {
   text-align: center;
   font-size: 12px;
 }
-
+ 
 #inv-display img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0.5rem;
 }
-
+ 
 hr {
   border-width: 6px;
 }
-
+ 
 /*Details view*/
 .details-display{
   display: flex;
 }
-
+ 
 #detailsLeft,
 #detailsRight {
   margin: 2rem;
   padding: 0.5, 1,;
 }
-
+ 
 .details-display a {
   text-decoration: none;
   color: inherit;
   cursor: default;
 }
-
+ 
 #detailsLeft {
   width: 40%;
   height: auto;
   overflow: hidden;
 }
-
+ 
 #detailsLeft img {
   max-width: 100%;
   width: auto;
   display: block;
 }
-
+ 
 .userForm textarea {
-  color: black; 
-
+  color: black;
+ 
 }
-
+ 
 .userInfo label, button {
   color: #fff;
 }
-
+ 
 .reviewForm {
   max-width: 55rem;
 }
-
+ 
 .reviewForm label {
   margin-top: 1rem;
   background-color: #56105c;
 }
-
+ 
 .reviewForm button {
   margin-top: 1rem;
 }
-
+ 
 #revButton button, 
 .reviewForm button {
   background-color: #56105c;
@@ -354,7 +352,7 @@ hr {
   height: 3rem;
   width: 10rem;
 }
-
+ 
 /*login*/
 .userForm {
   padding: 1rem;
@@ -363,7 +361,7 @@ hr {
   max-width: 30rem;
   margin: auto;
 }
-
+ 
 .userInfo {
   display: flex;
   flex-direction: column;
@@ -373,31 +371,30 @@ hr {
   font-size: 20px;
   color: #fff;
 }
-
+ 
 .userForm p, .userForm a {
   color: #fff;
 }
-
+ 
 .userForm button {
   background-color: rgb(199, 199, 199);
   color: rgb(48, 48, 48);
   text-shadow: none;
   width: 96%;
 }
-
+ 
 .popup {
   display: none;
 }
- 
 #popBtn:hover + .popup {
   display: block;
 }
-
+ 
 /*Registration Form*/
 .userForm h3, .userForm ul {
   color: #fff;
 }
-
+ 
 /* Register */
 #passButton button{
   display: block;
@@ -406,26 +403,26 @@ hr {
   font-size: 1rem;
   color: #fff;
   margin-top: 0;
-
+ 
 }
-
+ 
 #passButton {
   display: flex;
   height: 2rem;
 }
-
+ 
 /* Management */
 .userInfo button {
   background-color: #56105c;
   max-width: 30rem;
 }
-
+ 
 .userInfo a {
   text-decoration: none;
   color: #fff;
   text-shadow: none;
 }
-
+ 
 /*Inventory Inventory Table*/
 #classification {
   background-color: #56105c;
@@ -435,122 +432,63 @@ hr {
   text-shadow: none;
   max-width: 30rem;
 }
-
+ 
 /*Update*/
 .updateForm button{
   color: #fff;
 }
- .updateForm {
+.updateForm {
   margin-bottom: 1rem;
- }
-
+}
+ 
 /*Responsive*/
 @media (max-width: 1600px) {
-  .upgrade {
-     margin: 0 3rem;
-  }
-  .details-display
-     flex-direction: column;
-}
-
+ 
 @media (max-width: 1530px) {
-  .upgrade {
-    width: 10rem;
-  }
 }
-
+ 
 @media (max-width: 1366px) {
-  .upgrade {
-    margin: 0 2rem;
-  }
+ 
 }
-
+ 
 @media (max-width: 1024px) {
-  .upgrade {
-    margin: 0 -1rem;
+  nav ul li a {
+    font-size: 14px;
+    padding: 0 0.25rem;
   }
 }
-
+ 
 @media (max-width: 820px) {
-   .twoLeft h2 {
-    width: 80%;
-  }
-
-  .twoRight h2 {
-    width: 115%;
-  }
-}
-
-@media (max-width: 768px) {
-  .upgrade {
-    width: 70%;
-  }
   .two {
     flex-direction: column;
   }
+ 
+  .twoLeft {
+    width: 100%;
+  }
+}
+ 
+@media (max-width: 768px) {
   .one {
     flex-direction: column;
   }
-  .upgraded {
-    flex-direction: 1fr 1fr;
-  }
 }
-
-@media (max-width: 695) {
+ 
+@media (max-width: 695px) {
   .userForm h3, .userForm ul {
     font-size: 1px;
   }
-}
-
-@media (max-width: 430px) {
-  .box {
-    display: none;
-  }
-
-  body {
-    margin: 0;
-    padding: 3rem;
-    background-image: none;
-    background-color: white;
-  }
-
-  .oneLeft h2 {
-    text-align: center;
-    padding: 0 2rem;
-    font-size: 22px;
-  }
-
-  .oneRight {
-    position: absolute
-  }
-  
-  .oneRight img {
-    position: relative;
-    left: 7rem;
-    top: .6rem;
-    width: 9rem;
-    height: 5rem;
-  }
-
-  .two {
-    flex-direction: column;
-  }
-
-.twoLeft h2, .twoRight h2{
-    width: 100%;
-    padding: 0 2rem 0 2rem;
-    margin: 0;
-    text-align: center;
-    font-size: 22px;
-  }
-
-  .twoLeft {
-    margin-bottom: 4rem;
-    width: 100%;
-    text-align: center;
-    }
  
-  .upgraded {
+  nav ul li a {
+    font-size: 12px;
+    padding: 0 0.05rem;
+  }
+ 
+  #wrapper {
+    padding: 1rem;
+  }
+ 
+    .upgraded {
     flex-direction: column;
     align-items: center;
     gap: 10%;
@@ -558,39 +496,75 @@ hr {
     padding: 10px;
     width: auto;
   }
-
-  /*.upgraded img /*{
-    margin-right: 0rem;
-  }*/
+}
  
-
- .userForm {
+@media (max-width: 430px) {
+  .box {
+    display: none;
+  }
+ 
+  body {
+    margin: 0;
+    padding: 1rem;
+    background-image: none;
+    background-color: white;
+  }
+ 
+  .oneLeft h2 {
+    text-align: center;
+    padding: 0 2rem;
+    font-size: 22px;
+  }
+ 
+  .two {
+    flex-direction: column;
+  }
+ 
+.twoLeft h2, .twoRight h2{
+    width: 100%;
+    padding: 0 2rem 0 2rem;
+    margin: 0;
+    text-align: center;
+    font-size: 22px;
+  }
+ 
+  .twoLeft {
+    margin-bottom: 4rem;
+    width: 100%;
+    text-align: center;
+    }
+ 
+.userForm {
   padding: 2rem;
   max-width: 60rem;
- }
 }
-
+}
+ 
 @media (max-width: 393px) {
     nav ul {
       justify-content: space-between;
     }
  
+    nav ul li a {
+      font-size: 10px;
+    }
 
- #passButton input {
+ 
+#passButton input {
   width: 78%;
 }
-
+ 
 #passButton button {
   width: 8rem;
   height: 8rem;
   margin: 0.25rem 1rem;
 }
 }
-
+ 
 @media (max-width: 375px) {
   .oneLeft h2, .twoLeft h2, .twoRight h2 {
     font-size: 20px;
     flex-direction: column;
   }
-
+ 
 }
