@@ -139,7 +139,9 @@ section {
 .oneRight img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  object-fit: contain;
+  /*border-radius: 8px;*/
+  
 }
 
 .two {
@@ -333,11 +335,20 @@ hr {
 }
 
 .reviewForm {
-  max-width: 25rem;
+  max-width: 55rem;
+}
+
+.reviewForm label {
+  margin-top: 1rem;
   background-color: #56105c;
 }
 
-#revButton button{
+.reviewForm button {
+  margin-top: 1rem;
+}
+
+#revButton button, 
+.reviewForm button {
   background-color: #56105c;
   border-radius: 3rem;
   height: 3rem;
@@ -394,6 +405,7 @@ hr {
   height: 2rem;
   font-size: 1rem;
   color: #fff;
+  margin-top: 0;
 
 }
 
@@ -460,12 +472,7 @@ hr {
 }
 
 @media (max-width: 820px) {
-  .upgrade {
-    margin: 0 -3rem;
-    width: 65%;
-  }
-
-  .twoLeft h2 {
+   .twoLeft h2 {
     width: 80%;
   }
 
@@ -477,6 +484,15 @@ hr {
 @media (max-width: 768px) {
   .upgrade {
     width: 70%;
+  }
+  .two {
+    flex-direction: column;
+  }
+  .one {
+    flex-direction: column;
+  }
+  .upgraded {
+    flex-direction: 1fr 1fr;
   }
 }
 
@@ -535,20 +551,17 @@ hr {
     }
  
   .upgraded {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4%;
-  }
-
-  .upgrade {
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
     text-align: center;
     padding: 10px;
     width: auto;
   }
 
-  .upgrade img {
+  /*.upgraded img /*{
     margin-right: 0rem;
-  }
+  }*/
  
 
  .userForm {
@@ -575,12 +588,9 @@ hr {
 }
 
 @media (max-width: 375px) {
-  .upgrade img {
-    padding: 1.5rem;
-  }
-
   .oneLeft h2, .twoLeft h2, .twoRight h2 {
     font-size: 20px;
+    flex-direction: column;
   }
-}
 
+}
